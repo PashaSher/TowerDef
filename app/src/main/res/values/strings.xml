@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">War of Drawing</string>
+    <string name="new_game_description">Start a new game</string>
 </resources>

@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".MainMenu">
 
+
+
     <ImageView
         android:id="@+id/main_image"
         android:layout_width="wrap_content"
@@ -14,5 +16,24 @@
         android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+    <ImageButton
+        android:id="@+id/new_game_button"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ng_button"
+        android:scaleType="fitCenter"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/new_game_description"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

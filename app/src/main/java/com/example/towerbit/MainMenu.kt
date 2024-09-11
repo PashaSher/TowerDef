@@ -36,16 +36,50 @@ class MainMenu : AppCompatActivity() {
         val animationDrawable = AnimationDrawable()
 
         // Добавляем кадры
-        animationDrawable.addFrame(getDrawable(R.drawable.fs0)!!, 100)
-        animationDrawable.addFrame(getDrawable(R.drawable.fs1)!!, 100)
-        animationDrawable.addFrame(getDrawable(R.drawable.fs2)!!, 100)
-        animationDrawable.addFrame(getDrawable(R.drawable.fs3)!!, 100)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs0)!!, 300)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs1)!!, 300)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs2)!!, 300)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs3)!!, 300)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs4)!!, 300)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs5)!!, 300)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs6)!!, 300)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs7)!!, 300)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs8)!!, 300)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs9)!!, 300)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs10)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs11)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs12)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs13)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs14)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs15)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs16)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs17)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs18)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs19)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs20)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs21)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs22)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs23)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs24)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs25)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs26)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs27)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs28)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs29)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs30)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs31)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs32)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs33)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs34)!!, 200)
+        animationDrawable.addFrame(getDrawable(R.drawable.fs35)!!, 200)
+
+
 
         // Устанавливаем анимацию для ImageView
         animatedImage.setImageDrawable(animationDrawable)
 
         // Запускаем анимацию
-        animationDrawable.isOneShot = false
+        animationDrawable.isOneShot = true
         animatedImage.post { animationDrawable.start() }
     }
 }
