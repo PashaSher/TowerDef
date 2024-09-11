@@ -88,10 +88,12 @@ class MainMenu : AppCompatActivity() {
         Start_button.setOnClickListener{
             val intent = Intent (this,MainMap::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.flip_in, R.anim.flip_out)
         }
-        
+
         Exit_button.setOnClickListener{
             finishAffinity()
+            System.exit(0)
         }
 
 
