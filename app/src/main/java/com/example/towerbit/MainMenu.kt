@@ -1,15 +1,16 @@
 package com.example.towerbit
 
+import android.content.Intent
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.Button
-import android.content.Intent
-import android.graphics.drawable.AnimationDrawable
-import android.view.View
-import android.widget.ImageView
+import android.widget.ImageButton
 
 class MainMenu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +27,7 @@ class MainMenu : AppCompatActivity() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-
+            
             // Возвращаем insets, чтобы ошибка исчезла
             insets
         }
@@ -74,12 +75,26 @@ class MainMenu : AppCompatActivity() {
         animationDrawable.addFrame(getDrawable(R.drawable.fs35)!!, 200)
 
 
-
         // Устанавливаем анимацию для ImageView
         animatedImage.setImageDrawable(animationDrawable)
 
         // Запускаем анимацию
         animationDrawable.isOneShot = true
         animatedImage.post { animationDrawable.start() }
+
+        val Start_button: ImageButton = findViewById(R.id.new_game_button)
+        val Exit_button: ImageButton = findViewById(R.id.exit_game_button)
+
+        Start_button.setOnClickListener{
+            val intent = Intent (this,MainMap::class.java)
+            startActivity(intent)
+        }
+        
+        Exit_button.setOnClickListener{
+            finishAffinity()
+        }
+
+
+
     }
 }

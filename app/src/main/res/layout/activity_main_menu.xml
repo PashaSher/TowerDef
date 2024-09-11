@@ -35,5 +35,33 @@
         android:layout_marginTop="16dp"/>
 
 
+    <ImageButton
+        android:id="@+id/continue_game_button"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:src="@drawable/continue_button"
+        android:scaleType="fitCenter"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/continue_game_description"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="126dp"/>
+
+
+    <ImageButton
+        android:id="@+id/exit_game_button"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:src="@drawable/exit_button"
+        android:scaleType="fitCenter"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/exit_game_description"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="226dp"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
