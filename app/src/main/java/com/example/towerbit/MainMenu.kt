@@ -86,7 +86,7 @@ class MainMenu : AppCompatActivity() {
         val Exit_button: ImageButton = findViewById(R.id.exit_game_button)
 
         Start_button.setOnClickListener{
-            val intent = Intent (this,MainMap::class.java)
+            val intent = Intent (this,HostActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.flip_in, R.anim.flip_out)
         }

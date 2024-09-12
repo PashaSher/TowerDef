@@ -3,4 +3,5 @@
     <string name="new_game_description">Start a new game</string>
     <string name="continue_game_description">Continue game</string>
     <string name="exit_game_description">Exit game</string>
+    <string name="Enemy_one">Enemy one</string>
 </resources>

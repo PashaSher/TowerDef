@@ -1,0 +1,47 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HostActivity">
+
+    <!-- Поле для отображения IP и PIN -->
+    <TextView
+        android:id="@+id/ip_pin_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IP и PIN"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp" />
+
+    <!-- ImageButton для копирования информации -->
+    <ImageButton
+        android:id="@+id/copy_button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/continue_button"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="Копировать в буфер"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitCenter" />
+
+    <ImageButton
+        android:id="@+id/wait_button"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/continue_button"
+        android:contentDescription="Ожидать подключения клиента"
+        app:layout_constraintTop_toBottomOf="@+id/copy_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="220dp"
+        android:scaleType="fitCenter" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
