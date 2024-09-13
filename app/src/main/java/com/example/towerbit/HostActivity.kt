@@ -3,11 +3,13 @@ package com.example.towerbit
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.net.Inet4Address
 import java.net.NetworkInterface
@@ -23,15 +25,20 @@ class HostActivity : AppCompatActivity() {
     private val serverPort = 8080
     private lateinit var serverThread: Thread
     private var serverRunning = false
+    private var startGameFlag = false
+
+    // Добавляем глобальную переменную для клиентского сокета
+    private var clientSocket: java.net.Socket? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_host)
-        // Полноэкранный режим и скрытие системных панелей
+
         window.decorView.systemUiVisibility = (
                 View.SYSTEM_UI_FLAG_FULLSCREEN       // Полноэкранный режим (скрытие статусной строки)
                         or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // Скрытие навигационной панели
                         or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) // Восстановление системных панелей при свайпе
+
 
         ipPinText = findViewById(R.id.ip_pin_text)
         copyButton = findViewById(R.id.copy_button)
@@ -57,18 +64,36 @@ class HostActivity : AppCompatActivity() {
             copyButton.text = "COPIED"
         }
 
-
         collapseButton.setOnClickListener {
             moveTaskToBack(true)
         }
 
         // Запускаем сервер при нажатии на кнопку ожидания клиента
         waitButton.setOnClickListener {
-
-            waitButton.text = "server started"
+            waitButton.text = "Server started"
             waitButton.isEnabled = false
-            startServer()
+            if(!startGameFlag) {
+                startServer()
+            }
+            else {
+                startGameFlag = false
 
+                // Отправляем клиенту сообщение о начале игры
+                thread {
+                    try {
+                        val output = java.io.PrintWriter(clientSocket!!.getOutputStream(), true)
+                        output.println("START_GAME")
+                        Log.d("Server", "Сообщение отправлено: START_GAME")
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+
+                // Запуск новой активности на стороне хоста
+                val intent = Intent(this, ArmyCreation::class.java)
+                startActivity(intent)
+                overridePendingTransition(R.anim.flip_in, R.anim.flip_out)
+            }
         }
     }
 
@@ -80,10 +105,25 @@ class HostActivity : AppCompatActivity() {
                 val serverSocket = java.net.ServerSocket(serverPort)
                 Log.d("Server", "Сервер запущен, ожидает подключения на порту $serverPort")
 
+                // Сообщение о запуске сервера
+                runOnUiThread {
+                    Toast.makeText(this, "Server started on port $serverPort", Toast.LENGTH_SHORT).show()
+                }
+
                 while (serverRunning) {
-                    val clientSocket = serverSocket.accept()
-                    Log.d("Server", "Клиент подключен: ${clientSocket.inetAddress}")
-                    handleClient(clientSocket)
+                    clientSocket = serverSocket.accept()
+                    val clientAddress = clientSocket!!.inetAddress.hostAddress
+
+                    // Сообщение о подключении клиента
+                    runOnUiThread {
+                        Toast.makeText(this, "Client connected: $clientAddress", Toast.LENGTH_SHORT).show()
+                        waitButton.text = "Start Game"
+                        waitButton.isEnabled = true
+                        startGameFlag = true
+                    }
+
+                    Log.d("Server", "Клиент подключен: $clientAddress")
+                    handleClient(clientSocket!!)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -107,8 +147,6 @@ class HostActivity : AppCompatActivity() {
                         output.flush()
                     }
                 }
-
-                clientSocket.close()
             } catch (e: Exception) {
                 e.printStackTrace()
             }

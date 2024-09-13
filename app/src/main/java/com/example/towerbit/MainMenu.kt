@@ -83,10 +83,18 @@ class MainMenu : AppCompatActivity() {
         animatedImage.post { animationDrawable.start() }
 
         val Start_button: ImageButton = findViewById(R.id.new_game_button)
+        val connect_button: ImageButton = findViewById(R.id.connect_game_button)
         val Exit_button: ImageButton = findViewById(R.id.exit_game_button)
 
         Start_button.setOnClickListener{
             val intent = Intent (this,HostActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.flip_in, R.anim.flip_out)
+        }
+
+
+        connect_button.setOnClickListener{
+            val intent = Intent (this,ClientActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.flip_in, R.anim.flip_out)
         }
