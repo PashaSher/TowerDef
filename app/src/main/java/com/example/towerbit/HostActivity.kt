@@ -6,7 +6,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ImageButton
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import java.net.Inet4Address
@@ -17,9 +17,9 @@ import kotlin.concurrent.thread
 class HostActivity : AppCompatActivity() {
 
     private lateinit var ipPinText: TextView
-    private lateinit var copyButton: ImageButton
-    private lateinit var waitButton: ImageButton
-
+    private lateinit var copyButton: Button
+    private lateinit var waitButton: Button
+    private lateinit var collapseButton: Button
     private val serverPort = 8080
     private lateinit var serverThread: Thread
     private var serverRunning = false
@@ -36,6 +36,7 @@ class HostActivity : AppCompatActivity() {
         ipPinText = findViewById(R.id.ip_pin_text)
         copyButton = findViewById(R.id.copy_button)
         waitButton = findViewById(R.id.wait_button)
+        collapseButton = findViewById(R.id.collapse_button)
 
         // Получаем IP-адрес устройства
         val ipAddress = getLocalIpAddress()
@@ -53,11 +54,21 @@ class HostActivity : AppCompatActivity() {
             val clip = ClipData.newPlainText("IP и PIN", ipPinInfo)
             clipboard.setPrimaryClip(clip)
             Log.d("HostActivity", "IP и PIN скопированы в буфер обмена")
+            copyButton.text = "COPIED"
+        }
+
+
+        collapseButton.setOnClickListener {
+            moveTaskToBack(true)
         }
 
         // Запускаем сервер при нажатии на кнопку ожидания клиента
         waitButton.setOnClickListener {
+
+            waitButton.text = "server started"
+            waitButton.isEnabled = false
             startServer()
+
         }
     }
 

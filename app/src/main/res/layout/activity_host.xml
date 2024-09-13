@@ -11,37 +11,75 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="IP и PIN"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:fontFamily="@font/caveat_regular"
+        android:background="?android:attr/selectableItemBackground"
         android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="50dp" />
 
-    <!-- ImageButton для копирования информации -->
-    <ImageButton
-        android:id="@+id/copy_button"
-        android:layout_width="100dp"
+
+    <Button
+    android:id="@+id/copy_button"
+    android:layout_width="200dp"
+    android:layout_height="100dp"
+    android:text="Copy"
+    android:background="?android:attr/selectableItemBackground"
+    android:contentDescription="Copy in buffer"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:fontFamily="@font/caveat_regular"
+        android:textSize="36dp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="100dp"
+    android:scaleType="fitCenter" />
+
+
+    <Button
+        android:id="@+id/collapse_button"
+        android:layout_width="200dp"
         android:layout_height="100dp"
-        android:src="@drawable/continue_button"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:fontFamily="@font/caveat_regular"
+        android:textSize="36dp"
+        android:contentDescription="collapse game"
+        android:text="collapse game"
         android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="Копировать в буфер"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="50dp"
         android:scaleType="fitCenter" />
 
-    <ImageButton
+
+    <Button
         android:id="@+id/wait_button"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/continue_button"
-        android:contentDescription="Ожидать подключения клиента"
-        app:layout_constraintTop_toBottomOf="@+id/copy_button"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="200dp"
+        android:layout_height="170dp"
+        android:text="Start Server"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="Start Server"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:fontFamily="@font/caveat_regular"
+        android:textSize="36dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="220dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="80dp"
         android:scaleType="fitCenter" />
+
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
