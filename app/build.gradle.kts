@@ -1,14 +1,19 @@
+
+
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.android.application")
+    id("kotlin-android")
+    id("com.google.gms.google-services")
 }
 
+
+
 android {
-    namespace = "com.example.towerbit"
+    namespace = "com.example.WarOfDrawing"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.towerbit"
+        applicationId = "com.example.WarOfDrawing"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -42,7 +47,14 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation(libs.firebase.database.ktx)
+
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 }

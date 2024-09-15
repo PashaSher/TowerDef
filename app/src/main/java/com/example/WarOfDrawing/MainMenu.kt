@@ -1,18 +1,24 @@
-package com.example.towerbit
+package com.example.WarOfDrawing
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import android.widget.Button
-import android.widget.ImageButton
 
+import com.google.firebase.database.FirebaseDatabase
+import android.util.Log
+
+
+@Suppress("DEPRECATION")
 class MainMenu : AppCompatActivity() {
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,7 +27,16 @@ class MainMenu : AppCompatActivity() {
                 View.SYSTEM_UI_FLAG_FULLSCREEN       // Полноэкранный режим (скрытие статусной строки)
                         or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // Скрытие навигационной панели
                         or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) // Восстановление системных панелей при свайпе
+        var firebaseDatabase = FirebaseDatabase.getInstance().reference
 
+        // Отправляем сообщение в базу данных
+        firebaseDatabase.child("messages").child("app_launch").setValue("App started!")
+            .addOnSuccessListener {
+                Log.d("Firebase", "Сообщение успешно отправлено")
+            }
+            .addOnFailureListener { exception ->
+                Log.e("Firebase", "Ошибка отправки сообщения: ${exception.message}")
+            }
 
         // Обрабатываем WindowInsets для корректной работы с системными панелями
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

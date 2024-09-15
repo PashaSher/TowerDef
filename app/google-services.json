@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1093197820356",
+    "project_id": "war-of-drawing",
+    "storage_bucket": "war-of-drawing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093197820356:android:a4ee599b266d0ad451b491",
+        "android_client_info": {
+          "package_name": "com.example.WarOfDrawing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJlDHCYoHuS5hsWasEAApUYFDmnm-QtCo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

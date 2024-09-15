@@ -1,4 +1,4 @@
-package com.example.towerbit
+package com.example.WarOfDrawing
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -15,6 +15,7 @@ import java.net.Inet4Address
 import java.net.NetworkInterface
 import java.net.SocketException
 import kotlin.concurrent.thread
+
 
 class HostActivity : AppCompatActivity() {
 
@@ -47,7 +48,7 @@ class HostActivity : AppCompatActivity() {
 
         // Получаем IP-адрес устройства
         val ipAddress = getLocalIpAddress()
-
+        AppState.isHost = true
         // Генерируем случайный PIN-код
         val pinCode = (1000..9999).random()
 

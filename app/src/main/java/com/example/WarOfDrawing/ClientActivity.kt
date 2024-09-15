@@ -1,4 +1,4 @@
-package com.example.towerbit
+package com.example.WarOfDrawing
 
 import android.content.ClipboardManager
 import android.content.Context
@@ -31,7 +31,7 @@ class ClientActivity : AppCompatActivity() {
                         or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) // Восстановление системных панелей при свайпе
         ipPinInput = findViewById(R.id.ip_pin_input)
         connectButton = findViewById(R.id.connect_button)
-
+        AppState.isHost = false
         // Получаем данные из буфера обмена
         val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clipData = clipboard.primaryClip

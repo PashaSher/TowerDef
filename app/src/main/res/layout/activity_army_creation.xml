@@ -8,4 +8,213 @@
     android:layout_height="match_parent"
     tools:context=".ArmyCreation">
 
+
+  <TextView
+      android:id="@+id/Army_creation"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Create your army"
+      android:textStyle="bold"
+      android:textColor="#000000"
+      android:fontFamily="@font/caveat_regular"
+      android:background="?android:attr/selectableItemBackground"
+      android:textSize="18sp"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="10dp" />
+
+
+
+
+  <TextView
+      android:id="@+id/PointsView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Points:"
+      android:textStyle="bold"
+      android:textColor="#000000"
+      android:fontFamily="@font/caveat_regular"
+      android:background="?android:attr/selectableItemBackground"
+      android:textSize="18sp"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="30dp" />
+
+  <ImageView
+      android:id="@+id/gunner_black_image"
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:src="@drawable/guner_black"
+      android:scaleType="fitCenter"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="100dp"/>
+
+  <Button
+      android:id="@+id/gunner_minus_button"
+      android:layout_width="40dp"
+      android:layout_height="40dp"
+      android:text="−"
+      android:background="?android:attr/selectableItemBackground"
+      android:textStyle="bold"
+      android:textColor="#000000"
+      android:fontFamily="@font/caveat_regular"
+      android:scaleType="fitCenter"
+      android:textSize="15sp"
+      app:layout_constraintStart_toStartOf="@id/gunner_black_image"
+      app:layout_constraintTop_toBottomOf="@id/gunner_black_image"
+      android:layout_marginTop="8dp"/>
+
+
+  <TextView
+      android:id="@+id/gunner_points_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="0"
+      android:textStyle="bold"
+      android:textColor="#000000"
+      android:textSize="24sp"
+      app:layout_constraintStart_toEndOf="@id/gunner_minus_button"
+      app:layout_constraintTop_toBottomOf="@id/gunner_black_image"
+      app:layout_constraintEnd_toStartOf="@id/gunner_plus_button"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginTop="18dp" />
+
+
+
+  <Button
+      android:id="@+id/gunner_plus_button"
+      android:layout_width="40dp"
+      android:layout_height="40dp"
+      android:text="+"
+      android:textStyle="bold"
+      android:textColor="#000000"
+      android:background="?android:attr/selectableItemBackground"
+      android:fontFamily="@font/caveat_regular"
+      android:scaleType="fitCenter"
+      android:textSize="15sp"
+      app:layout_constraintTop_toBottomOf="@id/gunner_black_image"
+      app:layout_constraintEnd_toEndOf="@id/gunner_black_image"
+      android:layout_marginTop="8dp"/>
+
+
+  <TextView
+      android:id="@+id/gunner_price"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Price: 10"
+      android:textSize="16sp"
+      android:textStyle="bold"
+      android:textColor="#000000"
+      app:layout_constraintBottom_toTopOf="@id/gunner_black_image"
+      app:layout_constraintStart_toStartOf="@id/gunner_black_image"
+      app:layout_constraintEnd_toEndOf="@id/gunner_black_image"
+      android:layout_marginBottom="8dp" />
+
+
+
+
+
+
+
+  <ImageView
+      android:id="@+id/Rocketman"
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:src="@drawable/rocketman_black_right"
+      android:scaleType="fitCenter"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      android:layout_marginStart="160dp"
+      android:layout_marginTop="100dp"/>
+
+
+  <Button
+      android:id="@+id/rocketman_minus_button"
+      android:layout_width="40dp"
+      android:layout_height="40dp"
+      android:text="−"
+      android:background="?android:attr/selectableItemBackground"
+      android:textStyle="bold"
+      android:textColor="#000000"
+      android:fontFamily="@font/caveat_regular"
+      android:scaleType="fitCenter"
+      android:textSize="15sp"
+      app:layout_constraintStart_toStartOf="@id/Rocketman"
+      app:layout_constraintTop_toBottomOf="@id/Rocketman"
+      android:layout_marginTop="8dp"/>
+
+
+  <TextView
+      android:id="@+id/rocketman_points_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="0"
+      android:textStyle="bold"
+      android:textColor="#000000"
+      android:textSize="24sp"
+      app:layout_constraintStart_toEndOf="@id/rocketman_minus_button"
+      app:layout_constraintTop_toBottomOf="@id/Rocketman"
+      app:layout_constraintEnd_toStartOf="@id/rocketman_plus_button"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginTop="18dp" />
+
+  <Button
+      android:id="@+id/rocketman_plus_button"
+      android:layout_width="40dp"
+      android:layout_height="40dp"
+      android:text="+"
+      android:textStyle="bold"
+      android:textColor="#000000"
+      android:background="?android:attr/selectableItemBackground"
+      android:fontFamily="@font/caveat_regular"
+      android:scaleType="fitCenter"
+      android:textSize="15sp"
+      app:layout_constraintTop_toBottomOf="@id/Rocketman"
+      app:layout_constraintEnd_toEndOf="@id/Rocketman"
+      android:layout_marginTop="8dp"/>
+
+
+
+
+
+  <TextView
+      android:id="@+id/rocketman_price"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Price: 15"
+      android:textSize="16sp"
+      android:textStyle="bold"
+      android:textColor="#000000"
+      app:layout_constraintBottom_toTopOf="@id/Rocketman"
+      app:layout_constraintStart_toStartOf="@id/Rocketman"
+      app:layout_constraintEnd_toEndOf="@id/Rocketman"
+      android:layout_marginBottom="8dp" />
+
+
+
+
+
+  <Button
+      android:id="@+id/ready"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Ready"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginEnd="16dp"
+      android:layout_marginBottom="16dp" />
+
+
+
+
+
+
+
+
   </androidx.constraintlayout.widget.ConstraintLayout>
